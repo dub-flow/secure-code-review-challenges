@@ -5,11 +5,13 @@ const app = express();
 
 app.get('/profile', (req, res) => {
     console.log('Received request for /profile');
+
     // Simulated profile data
     const profileData = {
         name: 'John Doe',
         role: 'Developer'
     };
+    
     res.json(profileData);
     console.log('Sent profile data response');
 });
