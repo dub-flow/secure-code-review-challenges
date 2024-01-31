@@ -12,7 +12,7 @@ Example Code (uses Bouncy Castle's BCrypt):
 
 `𝐁𝐂𝐫𝐲𝐩𝐭.𝐠𝐞𝐧𝐞𝐫𝐚𝐭𝐞(𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝, 𝐬𝐚𝐥𝐭, 𝟏𝟎)`
 
-Here, `𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝` is the user's password, 10 is the work factor (performs 2^10 iterations) and 𝐬𝐚𝐥𝐭 is a cryptographically secure random number generated using Java's 𝐒𝐞𝐜𝐮𝐫𝐞𝐑𝐚𝐧𝐝𝐨𝐦.
+Here, `𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝` is the user's password, 10 is the work factor (performs 2^10 iterations) and 𝐬𝐚𝐥𝐭 is a cryptographically secure random number generated using Java's `𝐒𝐞𝐜𝐮𝐫𝐞𝐑𝐚𝐧𝐝𝐨𝐦`.
 
 On top of this, you should also apply a pepper. A pepper is a secret value (as compared to a salt, which doesn't need to be secret) that is appended to the password before hashing. The idea is that if people provide bad passwords, the password is inherently more secure.
 
