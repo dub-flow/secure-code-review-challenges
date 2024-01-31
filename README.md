@@ -6,7 +6,7 @@ This repo contains the code for my Secure Code Review challenges
 
 1. Open Redirect
 2. SSRF
-3. <>
+3. Weak Password Hashing
 4. <>
 5. <>
 6. <>
