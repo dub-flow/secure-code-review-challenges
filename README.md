@@ -8,7 +8,7 @@ This repo contains the code for my Secure Code Review challenges
 2. SSRF
 3. Weak Password Hashing
 4. Hardcoded Credentials
-5. <>
+5. XXE
 6. <>
 7. <>
 8. <>
