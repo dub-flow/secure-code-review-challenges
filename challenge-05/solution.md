@@ -16,4 +16,4 @@ On top of this, there are some more flags which are recommended:
 
 2. Disable expansion for entity references
 
-3️. Enable Secure Processing
+3. Enable Secure Processing
