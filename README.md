@@ -9,6 +9,6 @@ This repo contains the code for my Secure Code Review challenges
 3. Weak Password Hashing
 4. Hardcoded Credentials
 5. XXE
-6. <>
+6. XSS
 7. <>
 8. <>
