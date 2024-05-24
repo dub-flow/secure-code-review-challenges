@@ -16,6 +16,10 @@ user_profile_service = UserProfileService()
 
 @app.route('/edit-profile', methods=['POST'])
 def edit_profile():
+    # Assume a function that checks if a user is logged in
+    if !is_authenticated():
+        return redirect(url_for('login'))
+        
     username = request.form.get('username')
     user_profile = user_profile_service.get_user_profile(username)
 
