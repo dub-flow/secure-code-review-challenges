@@ -11,4 +11,5 @@ This repo contains the code for my Secure Code Review challenges
 5. XXE
 6. XSS
 7. Host Header Injection
-8. <>
+8. Nginx Off-By-Slash
+9. Broken Access Control
