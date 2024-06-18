@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+    volumes:
+      - .:/app  # Mount your local directory into the container so that live changes are detected
+
+  nginx:
+    image: nginx
+    container_name: nginx_flask
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
