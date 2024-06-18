@@ -7,7 +7,7 @@ def admin():
     return "Admin area accessed!"
 
 @app.route('/')
-def admin():
+def hello():
     return "Hello World!"
 
 if __name__ == "__main__":
