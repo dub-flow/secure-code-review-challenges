@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  init:
+    image: busybox
+    command: sh -c "mkdir -p /data && chmod 777 /data"
+    volumes:
+      - ./data:/data
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - ./data:/data
+    depends_on:
+      - db
+      - init
+
+  db:
+    image: nouchka/sqlite3
+    volumes:
+      - ./data:/data
+    environment:
+      SQLITE_DATABASE: /data/database.db
+    depends_on:
+      - init
