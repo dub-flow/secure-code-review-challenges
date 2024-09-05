@@ -15,3 +15,4 @@ This repo contains the code for my Secure Code Review challenges
 9. Broken Access Control
 10. Broken Access Control (JWT missing verification)
 11. Path Normalization Bypass
+12. Unquoted Bash Variables
