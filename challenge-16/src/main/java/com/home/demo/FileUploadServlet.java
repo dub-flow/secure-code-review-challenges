@@ -26,6 +26,16 @@ public class FileUploadServlet extends HttpServlet {
         Part filePart = request.getPart("file");
         String fileName = filePart.getSubmittedFileName();
  
+        if (fileName.toLowerCase().endsWith(".jsp")) {
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            out.println("<html><body>");
+            out.println("<h2>Error: .jsp files are not allowed!</h2>");
+            out.println("<p><a href=\"/\">Go back</a></p>");
+            out.println("</body></html>");
+            return;
+        }
+
         String uploadDir = getServletContext().getRealPath("") + File.separator + "uploads";
         File uploadDirFile = new File(uploadDir);
         if (!uploadDirFile.exists()) {
@@ -47,7 +57,7 @@ public class FileUploadServlet extends HttpServlet {
         out.println("<html><body>");
         out.println("<h2>File Uploaded Successfully</h2>");
         out.println("<p>File Name: " + fileName + "</p>");
-        out.println("<p><a href=\"upload.jsp\">Go back</a></p>");
+        out.println("<p><a href=\"/\">Go back</a></p>");
         out.println("</body></html>");
     }
 }
