@@ -29,10 +29,7 @@ public class FileUploadServlet extends HttpServlet {
         if (fileName.toLowerCase().endsWith(".jsp")) {
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
-            out.println("<html><body>");
-            out.println("<h2>Error: .jsp files are not allowed!</h2>");
-            out.println("<p><a href=\"/\">Go back</a></p>");
-            out.println("</body></html>");
+            out.println("<html><body><h2>Error: .jsp files are not allowed!</h2><p><a href=\"/\">Go back</a></p></body></html>");
             return;
         }
 
@@ -54,10 +51,8 @@ public class FileUploadServlet extends HttpServlet {
         
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h2>File Uploaded Successfully</h2>");
+        out.println("<html><body><h2>File Uploaded Successfully</h2>");
         out.println("<p>File Name: " + fileName + "</p>");
-        out.println("<p><a href=\"/\">Go back</a></p>");
-        out.println("</body></html>");
+        out.println("<p><a href=\"/\">Go back</a></p></body></html>");
     }
 }
