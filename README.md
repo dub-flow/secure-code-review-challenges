@@ -1,4 +1,4 @@
-# Secure Code Review (App Sec) Challenges
+# Secure Code Review Challenges
 
 This repo contains the code for my Secure Code Review challenges
 
