@@ -16,7 +16,7 @@ app.post('/transfer', (req, res) => {
   const { from, to, amount } = req.body;
 
   db.serialize(() => {
-    db.run("BEGIN TRANSACTION", (err) => {
+    db.run("BEGIN EXCLUSIVE TRANSACTION", (err) => {
       if (err) {
         return res.status(500).json({ message: 'Failed to start transaction' });
       }
