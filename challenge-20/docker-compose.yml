@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  file-management:
+    build: .
+    ports:
+      - "8081:8080"
