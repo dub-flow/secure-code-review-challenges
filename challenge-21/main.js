@@ -22,6 +22,7 @@ app.use((req, res, next) => {
     next();
 });
 
+// Imagine this is a fully grown login
 app.get('/mock-login', (req, res) => {
     res.cookie('auth', users.admin.username, { httpOnly: true, secure: true, sameSite: "none"});
     return res.status(200).json({ message: 'Login successful!' });;
