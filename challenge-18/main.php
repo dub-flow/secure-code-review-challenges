@@ -16,7 +16,6 @@ class User {
 }
 
 function isAdmin() {
-    // Check if session user is an instance of User and has the role 'admin'
     if (isset($_SESSION['user']) && $_SESSION['user'] instanceof User) {
         return $_SESSION['user']->role === 'admin';
     }
@@ -25,7 +24,6 @@ function isAdmin() {
 
 if (isset($_POST['submit'])) {
     $data = $_POST['data'];
-    // Use @ to suppress errors and handle unserialize failure
     $user = @unserialize($data);
     if ($user === false && $data !== 'b:0;') {
         echo "Failed to unserialize user. ";
@@ -38,7 +36,6 @@ if (isAdmin()) {
     echo "Welcome to the admin page!";
 } else {
     if (isset($_SESSION['user'])) {
-        // Ensure that $_SESSION['user'] is a valid object before attempting to convert it to a string
         if ($_SESSION['user'] instanceof User) {
             echo 'Hello ' . $_SESSION['user'];
         } else {
