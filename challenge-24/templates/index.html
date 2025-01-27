@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<body>
+    <form id="xslt-form">
+        Upload XSLT file: <input type="file" id="xslt-file" accept=".xslt, .xsl">
+        <button type="submit">Transform XML</button>
+    </form>
+    <p id="transformed-xml"></p>
+
+    <script>
+        document.getElementById('xslt-form').onsubmit = async function(event) {
+            event.preventDefault();
+            const xsltFile = document.getElementById('xslt-file').files[0];
+            
+            if (!xsltFile) {
+                alert('Please select an XSLT file.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('xslt_file', xsltFile);
+
+            const response = await fetch('/parse-xslt', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const xmlData = await response.text();
+                document.getElementById('transformed-xml').innerText = xmlData;
+            } else {
+                alert('Error transforming XML.');
+            }
+        };
+    </script>
+</body>
+</html>
