@@ -5,11 +5,11 @@ This repo contains the code for my Secure Code Review challenges
 # Challenges
 
 1. Open Redirect
-2. SSRF
+2. Server-side Request Forgery
 3. Weak Password Hashing
 4. Hardcoded Credentials
-5. XXE
-6. XSS
+5. XML External Entity Attack
+6. Cross-site Scripting
 7. Host Header Injection
 8. Nginx Off-By-Slash
 9. Broken Access Control
@@ -22,7 +22,7 @@ This repo contains the code for my Secure Code Review challenges
 16. RCE via File Upload
 17. OS Command Injection
 18. Insecure Deserialization
-19. ...
+19. Server-side Template Injection
 20. ...
 21. ...
 22. ...

@@ -10,15 +10,6 @@ services:
     volumes:
       - .:/app 
 
-  nginx:
-    image: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    networks:
-      - app-network
-
 networks:
   app-network:
     driver: bridge
