@@ -18,6 +18,7 @@ type User struct {
 	Password string `json:"password"`
 }
 
+// Assume this to be a fully grown database
 func initializeDatabase() {
 	collection := client.Database("testdb").Collection("users")
 	count, _ := collection.CountDocuments(context.TODO(), bson.M{})
