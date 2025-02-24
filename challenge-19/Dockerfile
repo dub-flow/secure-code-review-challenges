@@ -9,7 +9,7 @@ COPY go.mod ./
 RUN go mod download
 
 # Copy the source code into the container
-COPY . .
+COPY main.go ./
 
 # Build the Go application
 RUN go build -o main .
