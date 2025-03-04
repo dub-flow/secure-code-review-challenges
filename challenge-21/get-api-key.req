@@ -1,0 +1,5 @@
+GET /api-key HTTP/1.1
+Host: localhost:3000
+Cookie: auth=admin
+Origin: https://test.com
+
