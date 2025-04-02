@@ -1,5 +1,7 @@
 # My Solution
 
+I created a walkthrough for this challenge: https://www.youtube.com/watch?v=Y4FQoMyRYtI&themeRefresh=1.
+
 Note that multiple solutions exist, as the challenge was based solely on the provided code without additional context.
 
 How I would approach it:
