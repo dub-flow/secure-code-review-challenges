@@ -19,32 +19,25 @@ type User struct {
 }
 
 // Assume this to be a fully grown database
-func initializeDatabase() {
-	collection := client.Database("testdb").Collection("users")
-	count, _ := collection.CountDocuments(context.TODO(), bson.M{})
-	if count == 0 {
-		_, _ = collection.InsertMany(context.TODO(), []interface{}{
-			User{"admin", "password"},
-			User{"user", "123456"},
+func initDB() {
+	users := client.Database("testdb").Collection("users")
+	if count, _ := users.CountDocuments(context.TODO(), bson.M{}); count == 0 {
+		users.InsertMany(context.TODO(), []interface{}{
+			bson.M{"username": "admin", "password": "password"},
+			bson.M{"username": "user", "password": "123456"},
 		})
-		log.Println("Database initialized")
 	}
 }
 
-func loginHandler(w http.ResponseWriter, r *http.Request) {
+func login(w http.ResponseWriter, r *http.Request) {
 	var creds map[string]interface{}
-	if err := json.NewDecoder(r.Body).Decode(&creds); err != nil {
+	if json.NewDecoder(r.Body).Decode(&creds) != nil {
 		http.Error(w, "Invalid request", http.StatusBadRequest)
 		return
 	}
 
-	collection := client.Database("testdb").Collection("users")
-	filter := bson.M{}
-	for key, value := range creds {
-		filter[key] = value
-	}
-
-	if err := collection.FindOne(context.TODO(), filter).Decode(&creds); err != nil {
+	users := client.Database("testdb").Collection("users")
+	if users.FindOne(context.TODO(), creds).Err() != nil {
 		http.Error(w, "Invalid credentials", http.StatusUnauthorized)
 		return
 	}
@@ -58,8 +51,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	initializeDatabase()
-
-	http.HandleFunc("/login", loginHandler)
+	initDB()
+	http.HandleFunc("/login", login)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
