@@ -15,3 +15,5 @@ On top of this, there are some more flags which are recommended:
 1. Explicitly disable XIncludes
 2. Disable expansion for entity references
 3. Enable Secure Processing
+
+For a secure version of the code, please check out `./safe.java`.
