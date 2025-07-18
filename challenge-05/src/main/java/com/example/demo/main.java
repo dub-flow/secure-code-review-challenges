@@ -1,10 +1,12 @@
-package com.example.my.tests;
+package com.example.demo;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import java.io.*;
-import javax.xml.parsers.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.*;
+import java.io.StringReader;
+import java.io.StringWriter;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -12,8 +14,12 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
+@SpringBootApplication
 @RestController
-public class HomeController {
+public class main {
+	public static void main(String[] args) {
+        SpringApplication.run(main.class, args);
+    }
 
 	@RequestMapping("/")
 	public String index() {
