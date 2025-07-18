@@ -11,12 +11,11 @@ import java.util.Map;
 
 @SpringBootApplication
 @RestController
-public class DemoApplication {
-
+public class main {
     private Map<String, String> userDatabase = new HashMap<>();
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(main.class, args);
     }
 
     @PostMapping("/register")
