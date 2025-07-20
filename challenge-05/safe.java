@@ -38,14 +38,6 @@ public class main {
 			// Prevent XXE attacks
 			dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
             dbf.setXIncludeAware(false);
-            dbf.setExpandEntityReferences(false);
-
-            // Alternatively (if Doctypes can't be disabled entirely)
-			dbf.setFeature("http://xml.org/sax/features/external-general-entities", false);
-			dbf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
-			dbf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-			dbf.setXIncludeAware(false);
-			dbf.setExpandEntityReferences(false);
 
 			DocumentBuilder builder = dbf.newDocumentBuilder();
 			Document doc = builder.parse(new InputSource(new StringReader(inputXml)));
