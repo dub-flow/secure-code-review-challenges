@@ -1,5 +1,7 @@
 # My Solution
 
+I created a walkthrough for this challenge: https://www.youtube.com/watch?v=3wEg3NJ0dHk.
+
 The code in this challenge is vulnerable to XXE, and can e.g. be exploited by sending a request like `./exploit.req`.
 
 My remediation guidance follows the OWASP XXE Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html. Check it out for concrete code samples.
