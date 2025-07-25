@@ -10,7 +10,6 @@
   "description": "",
   "dependencies": {
     "cookie-parser": "^1.4.7",
-    "express": "^4.21.2",
-    "lodash": "^4.17.21"
+    "express": "^4.21.2"
   }
 }
