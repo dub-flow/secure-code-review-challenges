@@ -1,5 +1,7 @@
 # My Solution
 
+I created a walkthrough for this challenge: https://www.youtube.com/watch?v=2Q2gIkKMwhQ.
+
 The code in this app is vulnerable to Host Header Injection. This may allow an attacker to craft malicious password reset links pointing to attacker-controlled domains, which could lead to phishing, credential theft, or session hijacking if a victim clicks on the link. An example of how to exploit this can be found in `./exploit.req`.
 
 To remediate this vulnerability, I would:

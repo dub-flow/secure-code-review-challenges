@@ -1,6 +1,6 @@
 # Secure Code Review Challenges
 
-This repo contains the code for my Secure Code Review challenges
+This repo contains the code for my Secure Code Review challenges.
 
 # Challenges 
 
@@ -12,7 +12,7 @@ Those marked with 🔴🎬 have a YouTube walkthrough available (you can find th
 4. Hardcoded Credentials
 5. XML External Entity Attack 🔴🎬
 6. Cross-site Scripting
-7. Host Header Injection
+7. Host Header Injection 🔴🎬
 8. Nginx Off-By-Slash
 9. Broken Access Control
 10. Broken Access Control (JWT missing verification)
