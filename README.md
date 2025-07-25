@@ -2,13 +2,15 @@
 
 This repo contains the code for my Secure Code Review challenges
 
-# Challenges
+# Challenges 
 
-1. Open Redirect
-2. Server-side Request Forgery
+Those marked with 🔴🎬 have a YouTube walkthrough available (you can find the link in the `./solution.md` in the challenge folder).
+
+1. Open Redirect 🔴🎬
+2. Server-side Request Forgery 🔴🎬
 3. Weak Password Hashing
 4. Hardcoded Credentials
-5. XML External Entity Attack
+5. XML External Entity Attack 🔴🎬
 6. Cross-site Scripting
 7. Host Header Injection
 8. Nginx Off-By-Slash
