@@ -1,10 +1,14 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = 'change-me'  # Required for session
 
 # Simulated "authentication" check
 def is_authenticated():
     return True
+
+def get_logged_in_username():
+    return session.get('username')
 
 class User:
     def __init__(self, username):
@@ -13,7 +17,7 @@ class User:
     def get_username(self):
         return self.username
 
-# Assume that this talks to an actual database instead of returning hardcoded data
+# Assume this talks to a real DB
 class UserProfileService:
     def get_user_profile(self, username):
         if username == 'testuser':
@@ -29,10 +33,11 @@ user_profile_service = UserProfileService()
 
 @app.route('/')
 def home():
+    # Simulate login by setting session (REMOVE in real app)
+    session['username'] = 'testuser'
     return '''
         <form action="/edit-profile" method="post">
-            <input type="text" name="username" value="testuser" />
-            <input type="submit" value="Edit Profile" />
+            <input type="submit" value="Edit My Profile" />
         </form>
     '''
 
@@ -41,13 +46,13 @@ def edit_profile():
     if not is_authenticated():
         return redirect(url_for('login'))
 
-    username = request.form.get('username')
-    user_profile = user_profile_service.get_user_profile(username)
+    logged_in_username = get_logged_in_username()
+    user_profile = user_profile_service.get_user_profile(logged_in_username)
 
-    if user_profile and user_profile.get_username() == username:
+    if user_profile:
         return user_profile_service.update_user_profile(user_profile)
 
-    return "User not found or mismatch", 400
+    return "User not found", 400
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
