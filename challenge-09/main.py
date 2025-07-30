@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+# Assume this to be a function that checks if a user is logged in
+def is_authenticated():
+    pass
+
 # Assume there's a UserProfileService with methods to fetch and update user profiles
 class UserProfileService:
     def get_user_profile(self, username):
@@ -16,7 +20,6 @@ user_profile_service = UserProfileService()
 
 @app.route('/edit-profile', methods=['POST'])
 def edit_profile():
-    # Assume a function that checks if a user is logged in
     if not is_authenticated():
         return redirect(url_for('login'))
         
