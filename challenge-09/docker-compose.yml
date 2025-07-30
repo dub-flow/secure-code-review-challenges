@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  web-challenge-09:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development

@@ -1,39 +1,53 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Assume this to be a function that checks if a user is logged in
+# Simulated "authentication" check
 def is_authenticated():
-    pass
+    return True
 
-# Assume there's a UserProfileService with methods to fetch and update user profiles
+class User:
+    def __init__(self, username):
+        self.username = username
+
+    def get_username(self):
+        return self.username
+
+# Assume that this talks to an actual database instead of returning hardcoded data
 class UserProfileService:
     def get_user_profile(self, username):
-        # Implementation to fetch user profile from the database
-        pass
+        if username == 'testuser':
+            return User(username)
+        return None
 
     def update_user_profile(self, user_profile):
-        # Implementation to update user profile in the database
-        pass
-
+        msg = f"Updated profile for user: {user_profile.get_username()}"
+        print(msg)
+        return msg 
+    
 user_profile_service = UserProfileService()
+
+@app.route('/')
+def home():
+    return '''
+        <form action="/edit-profile" method="post">
+            <input type="text" name="username" value="testuser" />
+            <input type="submit" value="Edit Profile" />
+        </form>
+    '''
 
 @app.route('/edit-profile', methods=['POST'])
 def edit_profile():
     if not is_authenticated():
         return redirect(url_for('login'))
-        
+
     username = request.form.get('username')
     user_profile = user_profile_service.get_user_profile(username)
 
-    if user_profile.get_username() == username:
-        user_profile_service.update_user_profile(user_profile)
-        
-        return redirect(url_for('dashboard'))
+    if user_profile and user_profile.get_username() == username:
+        return user_profile_service.update_user_profile(user_profile)
 
-@app.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
+    return "User not found or mismatch", 400
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)
