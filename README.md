@@ -14,7 +14,7 @@ Those marked with 🔴🎬 have a YouTube walkthrough available (you can find th
 6. Cross-site Scripting
 7. Host Header Injection 🔴🎬
 8. Nginx Off-By-Slash
-9. Broken Access Control (IDOR)
+9. Broken Access Control (IDOR) 🔴🎬
 10. Broken Access Control (JWT missing verification)
 11. Path Normalization Bypass
 12. Unquoted Bash Variables
