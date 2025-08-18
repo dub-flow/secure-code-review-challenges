@@ -18,6 +18,7 @@ int main() {
     scanf("%d", &quantity);
     printf("Your entered quantity: %d\n", quantity);
     printf("Fixed price per item is: %d euro\n", FIXED_PRICE);
+    
     calculate_total(quantity, FIXED_PRICE);
 
     return 0;
