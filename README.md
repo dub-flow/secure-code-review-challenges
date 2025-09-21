@@ -1,6 +1,6 @@
 # Secure Code Review Challenges
 
-This repo contains the code for my Secure Code Review challenges.
+This repo contains the code for my Secure Code Review challenges. The idea is to look at basic web vulnerabilities in a language-agnostic way. 
 
 # Challenges 
 
