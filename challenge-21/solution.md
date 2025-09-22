@@ -10,7 +10,7 @@ So we do:
 
 # How to Fix It
 
-The issue here is that the `Origin` header is reflected back as a trusted origin. To make things worse, `Access-Control-Allow-Credentials` is also set to `true` which means that cookies will be sent along trusted cross-origin requests. 
+The issue here is that the `Origin` header is reflected back as a trusted origin. To make things worse, 'Access-Control-Allow-Credentials' is also set to 'true' which means that a malicious actor can also read the responses of authenticated requests (i.e., requests that have the session cookie sent along).
 
 This bypasses the Same-origin Policy, which means that any app can now send requests to our app and *read the response*!
 
