@@ -2,6 +2,8 @@
 
 This repo contains the code for my Secure Code Review challenges. The idea is to look at basic web vulnerabilities in a language-agnostic way. 
 
+If you like these challenges, you may want to check out my [LeoTrace Community](https://community.leo-trace.com/about-community). Sign-up is free and it allows you to collaborate with like-minded people, ask me any questions you may have, and much more!
+
 # Challenges 
 
 Those marked with 🔴🎬 have a YouTube walkthrough available (you can find the link in the `./solution.md` in the challenge folder).
