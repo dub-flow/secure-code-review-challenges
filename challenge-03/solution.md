@@ -23,3 +23,9 @@ Simplified example:
 - Now, the password becomes "Winter2023asdklajej132"
 
 Thanks for coming to my TED talk on password hashing! 😃 
+
+# Unintended Vulnerability - Account Takeover
+
+There's also an unintended vulnerability in this challenge that's even worse than the intended solution: An account takeover in the `/register` endpoint.
+
+The app doesn't check if the username to register already exists. This means that, by registering a user called 'admin', we can change the existing admin user's password to a value we know, and thus take over their account.
