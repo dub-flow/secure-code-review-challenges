@@ -21,3 +21,13 @@ To remediate the Prototype Pollution issue, the best approach is to avoid mergin
 If merging is absolutely necessary, you must block dangerous keys like '__proto__', 'constructor', and 'prototype' during the process. See the attached snippet for an example of how to implement this kind of filtering.
 
 That said, relying on blocklists is generally considered a bad practice and should be avoided where possible.
+
+# Unintended 2nd Solution
+
+So I made a mistake this time and Jesper den Boer found an unintended solution. 😃
+
+Instead of becoming admin via the prototype pollution, we can simply abuse the merge function to merge in 'isAdmin = true'. For this, we send a `POST /register` request with the following body:
+
+`{"isAdmin": true}`
+
+Now, we are also an admin. This, of course, was not what I wanted haha. It's a good reminder that security is difficult. 
