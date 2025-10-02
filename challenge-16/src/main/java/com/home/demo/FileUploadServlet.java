@@ -41,7 +41,7 @@ public class FileUploadServlet extends HttpServlet {
         
         File file = new File(uploadDir, fileName);
         try (InputStream fileContent = filePart.getInputStream();
-             FileOutputStream outputStream = new FileOutputStream(file)) {
+            FileOutputStream outputStream = new FileOutputStream(file)) {
             byte[] buffer = new byte[1024];
             int bytesRead;
             while ((bytesRead = fileContent.read(buffer)) != -1) {

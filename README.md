@@ -23,7 +23,7 @@ Those marked with 🔴🎬 have a YouTube walkthrough available (you can find th
 13. SQL Injection
 14. Race Condition
 15. HTTP Response Splitting
-16. RCE via File Upload
+16. RCE via File Upload 🔴🎬
 17. OS Command Injection
 18. Insecure Deserialization
 19. Server-side Template Injection

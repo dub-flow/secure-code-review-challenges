@@ -1,5 +1,7 @@
 # My Solution
 
+I created a walkthrough for this challenge: https://www.youtube.com/watch?v=RjsXpdzG0vw
+
 To exploit this vulnerability, we need to upload a webshell. Since `.jsp` is blocklisted for the file upload functionality, we can use a different web page format, such as `.jspx` (see `./shell.jspx`). Next, we can visit our webshell via `http://localhost/uploads/shell.jspx?cmd=id`. We have RCE!
 
 The problem here is a lack of input validation on the file upload functionality. There is a variety of things that are important for file uploads, and I would suggest checking out this great OWASP Cheat Sheet for a comprehensive list: https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html
