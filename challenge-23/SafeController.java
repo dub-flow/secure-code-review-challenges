@@ -26,10 +26,6 @@ public class SafeController {
             Object result = method.invoke(instance);
 
             return result.toString();
-        } catch (ClassNotFoundException e) {
-            return "Error: Class not found - " + user;
-        } catch (NoSuchMethodException e) {
-            return "Error: Method 'sayHello' not found in class - " + user;
         } catch (Exception e) {
             return "Error invoking method: " + e.getClass().getSimpleName() + " - " + e.getMessage();
         }
