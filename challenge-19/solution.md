@@ -6,7 +6,7 @@ It appears that the `html/template` package, used for templating in this challen
 
 As an example, we can extract the `/etc/passwd` file via `<host>?tmpl={{ReadUserFile "/etc/passwd"}}`. This leverages the `ReadUserFile` function defined in the app. The 'password' variable can be extracted via `<host>/?tmpl={{.Password}}`.
 
-Moreover, we can get XSS via `<host>/?tmpl={{define "dub-flow"}}<​script>alert(1)<​/script>{{end}} {{template "dub-flow"}}`.
+Moreover, we can get XSS via `<host>/?tmpl={{define "dub-flow"}}<​script>alert(1)<​/script>{{end}} {{template "dub-flow"}}`, where we basically add a new template called `dub-flow`.
 
 To remediate the SSTI vulnerability, the first question one should ask is what is the developer trying to achieve here. Ultimately, they probably want to take some user data, put it into a template, and then render it to the user. 
 
