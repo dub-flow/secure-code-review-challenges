@@ -1,5 +1,7 @@
 # My Solution
 
+I created a walkthrough for this challenge: https://www.youtube.com/watch?v=kF4UeEmH0fc
+
 The problem here is that Flask and Nginx may disagree on what characters are allowed in a path. For example, Nginx@1.25.5 says that `\x85` and `\xa0` are valid characters for a path, whereas Flask says "Nah, they are not".
 
 This means if you block `/admin` in Nginx and do it incorrectly, an attacker may visit `/admin\x85`. Now, Nginx thinks "ok, that's not '/admin' so I will let this go through". But Flask says "'\x85' is not a valid path character, so I will just serve you '/admin'".

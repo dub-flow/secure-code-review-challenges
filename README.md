@@ -18,7 +18,7 @@ Those marked with 🔴🎬 have a YouTube walkthrough available (you can find th
 8. Nginx Off-By-Slash
 9. Broken Access Control (IDOR) 🔴🎬
 10. Broken Access Control (JWT missing verification)
-11. Path Normalization Bypass
+11. Path Normalization Bypass 🔴🎬
 12. Unquoted Bash Variables
 13. SQL Injection
 14. Race Condition
