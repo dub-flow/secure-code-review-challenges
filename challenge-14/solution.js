@@ -15,6 +15,10 @@ db.serialize(() => {
 app.post('/transfer', (req, res) => {
   const { from, to, amount } = req.body;
 
+  if (typeof from !== 'number' || typeof to !== 'number' || typeof amount !== 'number' || amount <= 0) {
+    return res.status(400).json({ message: 'Invalid input' });
+  }
+
   db.serialize(() => {
     db.run("BEGIN EXCLUSIVE TRANSACTION", (err) => {
       if (err) {
