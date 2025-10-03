@@ -15,6 +15,10 @@ db.serialize(() => {
 app.post('/transfer', (req, res) => {
   const { from, to, amount } = req.body;
 
+  if (typeof from !== 'number' || typeof to !== 'number' || typeof amount !== 'number' || amount <= 0) {
+    return res.status(400).json({ message: 'Invalid input' });
+  }
+  
   db.get("SELECT balance FROM accounts WHERE id = ?", [from], (err, row) => {
     if (!row) return res.status(400).json({ message: 'Invalid from account' });
 
