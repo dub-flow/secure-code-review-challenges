@@ -21,7 +21,7 @@ Those marked with 🔴🎬 have a YouTube walkthrough available (you can find th
 11. Path Normalization Bypass 🔴🎬
 12. Unquoted Bash Variables
 13. SQL Injection
-14. Race Condition
+14. Race Condition 🔴🎬
 15. HTTP Response Splitting
 16. RCE via File Upload 🔴🎬
 17. OS Command Injection

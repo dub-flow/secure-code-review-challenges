@@ -1,5 +1,7 @@
 # My Solution
 
+I created a walkthrough for this challenge: https://www.youtube.com/watch?v=zrpEWn9FAM4
+
 So say that Bob has 1000 euros... What he can then do is send like 20 requests at the same time that send 200 euros to Alice. Note that in our scenario, Bob is not allowed to overspend, but the Race Condition allows him to bypass this condition.
 
 Due to the Race Condition, there is a small window between the time where Bob's current balance is checked, and the actual transaction takes place. 
