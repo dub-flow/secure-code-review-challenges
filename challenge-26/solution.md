@@ -10,9 +10,9 @@ How?
 
 1️⃣ Send a 'GET /admin' with a cookie 'username=guest'(simulates being logged in) and notice that you get a '403 Forbidden'
 
-2️⃣ Abuse the prototype pollution vulnerability to make our 'guest' user an admin (see first screenshot)
+2️⃣ Abuse the prototype pollution vulnerability to make our 'guest' user an admin
 
-3️⃣ Visit '/admin' again and notice that we now get a '200 OK' (see second screenshot)
+3️⃣ Visit '/admin' again and notice that we now get a '200 OK'
 
 # My Solution
 
