@@ -41,7 +41,7 @@ def list_invoices():
 def mark_invoice_paid(invoice_id):
     invoice = Invoice.query.get_or_404(invoice_id)
     
-    # Imagine some proper payment logic here that allows you paying the invoice
+    # Imagine some proper payment logic here that allows you paying the invoice and, if successful, sets "paid" to "true"
     invoice.paid = True
     db.session.commit()
     return jsonify({"message": f"Invoice {invoice_id} marked as paid."})
