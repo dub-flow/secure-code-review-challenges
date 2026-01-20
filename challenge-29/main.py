@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
 
@@ -23,6 +23,10 @@ class Invoice(db.Model):
             "description": self.description,
             "paid": self.paid
         }
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 @app.route("/invoices", methods=["POST"])
 def create_invoice():
@@ -49,4 +53,4 @@ def mark_invoice_paid(invoice_id):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=False)

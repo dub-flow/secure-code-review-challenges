@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<body>
+
+<h2>Create invoice</h2>
+
+<input id="customer" placeholder="customer">
+<input id="amount" type="number" step="0.01" placeholder="amount">
+<input id="desc" placeholder="description">
+<button onclick="create()">Create</button>
+
+<h2>Invoices</h2>
+<ul id="list"></ul>
+
+<script>
+async function create() {
+  await fetch("/invoices", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      customer_name: customer.value,
+      amount: amount.value,
+      description: desc.value
+    })
+  });
+  customer.value = amount.value = desc.value = "";
+  load();
+}
+
+async function pay(id) {
+  await fetch(`/pay/${id}`, { method: "POST" });
+  load();
+}
+
+async function load() {
+  const r = await fetch("/invoices");
+  const data = await r.json();
+  list.innerHTML = "";
+  data.forEach(i => {
+    const li = document.createElement("li");
+    li.innerHTML =
+      `#${i.id} ${i.customer_name} ${i.amount} paid=${i.paid}
+       ${i.paid ? "" : `<button onclick="pay(${i.id})">pay</button>`}`;
+    list.appendChild(li);
+  });
+}
+
+load();
+</script>
+
+</body>
+</html>
