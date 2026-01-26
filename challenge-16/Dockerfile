@@ -1,6 +1,8 @@
-FROM maven:3.8.5-openjdk-17 AS build
+FROM eclipse-temurin:17-jdk AS build
 
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y maven
 
 COPY pom.xml .
 
