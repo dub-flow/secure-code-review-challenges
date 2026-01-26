@@ -1,13 +1,15 @@
-FROM maven:3.8.6-openjdk-11-slim AS builder
+FROM eclipse-temurin:17-jdk AS builder
 
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y maven
 
 COPY pom.xml /app/
 COPY src /app/src/
 
 RUN mvn clean package -DskipTests
 
-FROM openjdk:11-jre-slim
+FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
