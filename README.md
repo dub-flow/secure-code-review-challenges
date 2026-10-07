@@ -51,5 +51,5 @@ If you like these challenges, you may want to check out my [LeoTrace Community](
 29. Mass Assignment 🐍
 30. HTML Injection via PDF Renderer 🐹
 31. Web Cache Poisoning 🐹
-32. ...
-33. ...
+32. Business Logic
+33. SSRF via DNS Rebinding
